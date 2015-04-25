@@ -23,11 +23,13 @@ CREATE TABLE IF NOT EXISTS Personne (
 
 CREATE TABLE IF NOT EXISTS Entraineur (
   n_registre_entraineur BIGINT PRIMARY KEY,
-  date_debut            DATE   NOT NULL
+  date_debut            DATE   NOT NULL,
+  FOREIGN KEY (n_registre_entraineur) REFERENCES Personne(n_registre)
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS Joueur (
-  n_registre_joueur BIGINT PRIMARY KEY
+  n_registre_joueur BIGINT PRIMARY KEY,
+  FOREIGN KEY (n_registre_joueur) REFERENCES Personne(n_registre)
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS Club (
@@ -104,3 +106,7 @@ INSERT INTO Personne(n_registre, nom, prenom, nationalite, rue, numero, code_pos
 INSERT INTO Personne(n_registre, nom, prenom, nationalite, rue, numero, code_postal, localite) VALUES (1001, 'Wilmots', 'Marc', 'Belge', 'Parc', 12, 4000, 'Liège');
 INSERT INTO Personne(n_registre, nom, prenom, nationalite, rue, numero, code_postal, localite) VALUES (1002, 'Hubert', 'Alain', 'Belge', 'Fleuve', 23, 1000, 'Bruxelles');
 INSERT INTO Personne(n_registre, nom, prenom, nationalite, rue, numero, code_postal, localite) VALUES (1003, 'Leterme', 'Yves', 'Belge', 'Market', 19, 8900, 'Ypres');
+
+INSERT INTO Entraineur(n_registre_entraineur, date_debut) VALUES (1001, '2003/03/26');
+
+INSERT INTO Joueur(n_registre_joueur) VALUES (1003);

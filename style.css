@@ -1,0 +1,16 @@
+.menu {
+  text-align: center;
+  margin: 10px
+}
+
+.menu li {
+  display: inline;
+}
+
+.menu li a {
+  color: #ffffff;
+  background-color: #008000;
+  border: 1px #00aa00 solid;
+  margin: 2px;
+  padding: 5px;
+}
