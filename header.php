@@ -11,5 +11,7 @@
     <li><a href='personnes.php'>Personnes</a></li>
     <li><a href='joueurs.php'>Joueurs</a></li>
     <li><a href='entraineurs.php'>Entraineurs</a></li>
+    <li><a href='clubs.php'>Clubs</a></li>
+    <li><a href='equipes.php'>Equipes</a></li>
   </ul>
 </div>

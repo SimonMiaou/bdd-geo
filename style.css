@@ -1,3 +1,4 @@
+/* Un joli menu */
 .menu {
   text-align: center;
   margin: 10px
@@ -13,4 +14,15 @@
   border: 1px #00aa00 solid;
   margin: 2px;
   padding: 5px;
+}
+
+/* Des jolis tableaux */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th, td {
+  border: 1px #000000 solid;
+  padding: 2px;
 }
