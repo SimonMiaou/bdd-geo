@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS JouePour (
   FOREIGN KEY (id_equipe)         REFERENCES Equipe(id_equipe)
 ) ENGINE=InnoDB;
 
-INSERT INTO Personne(n_registre, nom, prenom, rue, numero, code_postal, localite) VALUES (1000, 'Vernes', 'Henri', 'Cathedrale', 42, 7500, 'Tournai');
-INSERT INTO Personne(n_registre, nom, prenom, rue, numero, code_postal, localite) VALUES (1001, 'Wilmots', 'Marc', 'Parc', 12, 4000, 'Liège');
-INSERT INTO Personne(n_registre, nom, prenom, rue, numero, code_postal, localite) VALUES (1002, 'Hubert', 'Alain', 'Fleuve', 23, 1000, 'Bruxelles');
-INSERT INTO Personne(n_registre, nom, prenom, rue, numero, code_postal, localite) VALUES (1003, 'Leterme', 'Yves', 'Market', 19, 8900, 'Ypres');
+INSERT INTO Personne(n_registre, nom, prenom, nationalite, rue, numero, code_postal, localite) VALUES (1000, 'Vernes', 'Henri', 'Belge', 'Cathedrale', 42, 7500, 'Tournai');
+INSERT INTO Personne(n_registre, nom, prenom, nationalite, rue, numero, code_postal, localite) VALUES (1001, 'Wilmots', 'Marc', 'Belge', 'Parc', 12, 4000, 'Liège');
+INSERT INTO Personne(n_registre, nom, prenom, nationalite, rue, numero, code_postal, localite) VALUES (1002, 'Hubert', 'Alain', 'Belge', 'Fleuve', 23, 1000, 'Bruxelles');
+INSERT INTO Personne(n_registre, nom, prenom, nationalite, rue, numero, code_postal, localite) VALUES (1003, 'Leterme', 'Yves', 'Belge', 'Market', 19, 8900, 'Ypres');
