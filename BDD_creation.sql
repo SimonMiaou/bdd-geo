@@ -122,3 +122,11 @@ INSERT INTO Equipe(id_equipe, licence_club, nom) VALUES (3002, 2002, 'Les Mauves
 INSERT INTO Competition(id_competition, nom_competition, annee) VALUES (4001, 'Jupiler Pro League', 2014);
 
 INSERT INTO Rencontre(id_rencontre, etape, date, id_competition, id_equipe_domicile, goals_equipe_domicile, id_equipe_exterieur, goals_equipe_exterieur) VALUES (5001, 5, '2014/04/28', 4001, 3001, 3, 3002, 0);
+
+INSERT INTO PositionJoueur(n_registre_joueur, position) VALUES (1003, 9);
+
+INSERT INTO JoueRencontre(n_registre_joueur, id_rencontre, n_minutes_jouees, n_goals_marques) VALUES (1003, 5001, 45, 2);
+
+INSERT INTO Entraine(n_registre_entraineur, id_equipe, annee) VALUES (1001, 3002, 2014);
+
+INSERT INTO JouePour(n_registre_joueur, annee, id_equipe) VALUES (1003, 2014, 3001);
