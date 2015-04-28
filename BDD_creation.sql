@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS Entraine (
   n_registre_entraineur BIGINT NOT NULL,
   id_equipe             BIGINT NOT NULL,
   annee                 INT    NOT NULL,
-  PRIMARY KEY (n_registre_entraineur, id_equipe),
+  PRIMARY KEY (n_registre_entraineur, annee),
   FOREIGN KEY (n_registre_entraineur) REFERENCES Entraineur(n_registre_entraineur),
   FOREIGN KEY (id_equipe)             REFERENCES Equipe(id_equipe)
 ) ENGINE=InnoDB;
