@@ -13,5 +13,7 @@
     <li><a href='entraineurs.php'>Entraineurs</a></li>
     <li><a href='clubs.php'>Clubs</a></li>
     <li><a href='equipes.php'>Equipes</a></li>
+    <li><a href='competitions.php'>Compétitions</a></li>
+    <li><a href='rencontres.php'>Rencontres</a></li>
   </ul>
 </div>

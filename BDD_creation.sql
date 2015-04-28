@@ -114,5 +114,11 @@ INSERT INTO Entraineur(n_registre_entraineur, date_debut) VALUES (1004, '2000/01
 INSERT INTO Joueur(n_registre_joueur) VALUES (1003);
 
 INSERT INTO Club(licence, nom, stade, pays) VALUES (2001, 'Royal Standard de Liège', 'Stade Maurice Dufrasne', 'Belgique');
+INSERT INTO Club(licence, nom, stade, pays) VALUES (2002, 'Royal Sporting Club Anderlecht', 'Constant Vanden Stock', 'Belgique');
 
 INSERT INTO Equipe(id_equipe, licence_club, nom) VALUES (3001, 2001, 'Les Rouges');
+INSERT INTO Equipe(id_equipe, licence_club, nom) VALUES (3002, 2002, 'Les Mauves');
+
+INSERT INTO Competition(id_competition, nom_competition, annee) VALUES (4001, 'Jupiler Pro League', 2014);
+
+INSERT INTO Rencontre(id_rencontre, etape, date, id_competition, id_equipe_domicile, goals_equipe_domicile, id_equipe_exterieur, goals_equipe_exterieur) VALUES (5001, 5, '2014/04/28', 4001, 3001, 3, 3002, 0);
