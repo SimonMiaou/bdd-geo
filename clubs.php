@@ -1,6 +1,9 @@
 <?php include 'header.php' ?>
 <h1>Clubs</h1>
 
+<form method='get' action='clubs.php'>
+</form>
+
 <table>
   <tr>
     <th>Licence</th>
@@ -9,7 +12,11 @@
     <th>Pays</th>
   </tr>
   <?php
-  $req = $bdd->query('SELECT * FROM Club');
+  $where = '';
+  if (isset($_GET['licence']) && $_GET['licence'] != '*') {
+    $where = 'WHERE licence = '.intval($_GET['licence']);
+  }
+  $req = $bdd->query('SELECT * FROM Club '.$where);
   while($tuple = $req->fetch()){
     ?>
     <tr>

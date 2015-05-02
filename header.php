@@ -1,4 +1,5 @@
 <?php include 'base_de_donnees.php' ?>
+<?php include 'fonctions.php' ?>
 <html>
 <header>
   <title>Projet BDD Geo</title>
