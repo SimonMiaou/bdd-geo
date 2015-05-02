@@ -17,10 +17,10 @@
   </tr>
   <?php
   $where = '';
-  if (isset($_GET['n_registre_entraineur']) && $_GET['n_registre_entraineur']) {
+  if (isset($_GET['n_registre_entraineur']) && $_GET['n_registre_entraineur'] && $_GET['n_registre_entraineur'] != '*') {
     $where = 'WHERE Entraine.n_registre_entraineur = '.intval($_GET['n_registre_entraineur']);
   }
-  if (isset($_GET['annee']) && $_GET['annee']) {
+  if (isset($_GET['annee']) && $_GET['annee'] && $_GET['annee'] != '*') {
     $where = where_ou_and($where).'Entraine.annee = '.intval($_GET['annee']);
   }
   $req = $bdd->query('SELECT Entraine.n_registre_entraineur, Personne.prenom as prenom_entraineur, Personne.nom as nom_entraineur, Entraine.id_equipe, Equipe.nom as nom_equipe, Entraine.annee

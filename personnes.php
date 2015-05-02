@@ -1,6 +1,11 @@
 <?php include 'header.php' ?>
 <h1>Personnes</h1>
 
+<form method='get' action='personnes.php'>
+  <input type='text' name='n_registre' placeholder='N. registre' required />
+  <input type='submit' value='Soumettre' />
+</form>
+
 <table>
   <tr>
     <th>N. registre</th>
@@ -13,7 +18,11 @@
     <th>Localité</th>
   </tr>
   <?php
-  $req = $bdd->query('SELECT * FROM Personne');
+  $where = '';
+  if (isset($_GET['n_registre']) && $_GET['n_registre'] && $_GET['n_registre'] != '*') {
+    $where = 'WHERE n_registre = '.intval($_GET['n_registre']);
+  }
+  $req = $bdd->query('SELECT * FROM Personne '.$where);
   while($tuple = $req->fetch()){
     ?>
     <tr>

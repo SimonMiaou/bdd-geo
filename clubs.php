@@ -2,6 +2,8 @@
 <h1>Clubs</h1>
 
 <form method='get' action='clubs.php'>
+  <input type='text' name='licence' placeholder='Licence' required />
+  <input type='submit' value='Soumettre' />
 </form>
 
 <table>
@@ -13,7 +15,7 @@
   </tr>
   <?php
   $where = '';
-  if (isset($_GET['licence']) && $_GET['licence'] != '*') {
+  if (isset($_GET['licence']) && $_GET['licence'] && $_GET['licence'] != '*') {
     $where = 'WHERE licence = '.intval($_GET['licence']);
   }
   $req = $bdd->query('SELECT * FROM Club '.$where);

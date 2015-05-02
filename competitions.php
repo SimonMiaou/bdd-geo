@@ -14,7 +14,7 @@
   </tr>
   <?php
   $where = '';
-  if (isset($_GET['id_competition']) && $_GET['id_competition'] != '*') {
+  if (isset($_GET['id_competition']) && $_GET['id_competition'] && $_GET['id_competition'] != '*') {
     $where = 'WHERE id_competition = '.intval($_GET['id_competition']);
   }
   $req = $bdd->query('SELECT * FROM Competition '.$where);
