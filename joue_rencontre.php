@@ -1,6 +1,8 @@
 <?php include 'header.php' ?>
 <h1>JoueRencontre</h1>
 
+<p><a href='encoder_joue_rencontre.php'>Encoder une activité</a></p>
+
 <form method='get' action='joue_rencontre.php'>
   <input type='text' name='n_registre_joueur' placeholder='N. registre joueur' />
   <input type='text' name='id_rencontre' placeholder='ID rencontre' />
