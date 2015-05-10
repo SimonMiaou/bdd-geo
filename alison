@@ -1,0 +1,27 @@
+ SELECT n_registre AS n_registre_joueur, nom, prenom
+ FROM   (SELECT N_registre_joueur, COUNT(id_rencontre) AS n_rencontre_joueur
+     FROM JoueRencontre
+     WHERE n_minutes_jouees > 0
+     AND id_rencontre IN (SELECT id_rencontre
+                FROM Rencontre NATURAL JOIN Competition
+                WHERE annee = annee_choisie
+                AND nom_competion = nom_choisi)
+    GROUP BY n_registre_joueur)
+
+  NATURAL JOIN (SELECT id_equipe, dom + ext AS n_rencontre_equipe
+          FROM (SELECT id_equipe_domicile AS id_equipe, COUNT(id_rencontre) AS dom
+            FROM (SELECT n_registre_joueur, id_rencontre, id_equipe_domicile, id_equipe_exterieur
+                FROM Joueur NATURAL JOIN JoueRencontre NATURAL JOIN Rencontre NATURAL JOIN Competition
+                 WHERE annee = annee_choisie
+                AND nom_competion = nom_choisi)
+             GROUP BY id_equipe)
+          NATURAL JOIN (SELECT id_equipe_exterieur AS id_equipe, COUNT(id_rencontre) AS ext
+                  FROM (SELECT n_registre_joueur, id_rencontre, id_equipe_domicile, id_equipe_exterieur
+                      FROM Joueur NATURAL JOIN JoueRencontre NATURAL JOIN Rencontre NATURAL JOIN Competition
+                      WHERE annee = annee_choisie
+                        AND nom_competion = nom_choisi)
+                      GROUP BY id_equipe))
+  NATURAL JOIN JouePour
+  NATURAL JOIN Personne
+  WHERE n_rencontre_equipe = n_rencontre_joueur
+

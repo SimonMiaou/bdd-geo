@@ -31,5 +31,6 @@ if (empty($_SESSION['pseudo'])) {
 <div class='menu'>
   <ul>
     <li><a href='meilleurs_buteurs.php'>Meilleurs buteurs</a></li>
+    <li><a href='joueurs_ayant_joue_tout_les_matchs.php'>Joueurs ayant joué tout les matchs</a></li>
   </ul>
 </div>
