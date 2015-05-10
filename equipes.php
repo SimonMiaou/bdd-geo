@@ -10,6 +10,7 @@
   <tr>
     <th>License du club</th>
     <th>Nom du club</th>
+    <th>ID équipe</th>
     <th>Nom de l'équipe</th>
   </tr>
   <?php
@@ -17,7 +18,7 @@
   if (isset($_GET['licence_club']) && $_GET['licence_club'] && $_GET['licence_club'] != '*') {
     $where = 'WHERE Equipe.licence_club = '.intval($_GET['licence_club']);
   }
-  $req = $bdd->query('SELECT Equipe.licence_club, Club.nom as nom_club, Equipe.nom
+  $req = $bdd->query('SELECT Equipe.licence_club, Club.nom as nom_club, Equipe.id_equipe, Equipe.nom
     FROM Equipe JOIN Club
      ON Club.licence = Equipe.licence_club '.$where);
   while($tuple = $req->fetch()){
@@ -25,6 +26,7 @@
     <tr>
       <td><?php echo $tuple['licence_club'] ?></td>
       <td><?php echo $tuple['nom_club'] ?></td>
+      <td><?php echo $tuple['id_equipe'] ?></td>
       <td><?php echo $tuple['nom'] ?></td>
     </tr>
     <?php

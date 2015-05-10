@@ -54,14 +54,14 @@ CREATE TABLE IF NOT EXISTS Competition (
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS Rencontre (
-  id_rencontre           BIGINT PRIMARY KEY,
+  id_rencontre           BIGINT PRIMARY KEY AUTO_INCREMENT,
   etape                  INT    NOT NULL,
   date                   DATE   NOT NULL,
   id_competition         BIGINT NOT NULL,
   id_equipe_domicile     BIGINT NOT NULL,
-  goals_equipe_domicile  INT    NOT NULL,
+  goals_equipe_domicile  INT    NOT NULL DEFAULT 0,
   id_equipe_exterieur    BIGINT NOT NULL,
-  goals_equipe_exterieur INT    NOT NULL,
+  goals_equipe_exterieur INT    NOT NULL DEFAULT 0,
   FOREIGN KEY (id_competition)      REFERENCES Competition(id_competition),
   FOREIGN KEY (id_equipe_domicile)  REFERENCES Equipe(id_equipe),
   FOREIGN KEY (id_equipe_exterieur) REFERENCES Equipe(id_equipe)

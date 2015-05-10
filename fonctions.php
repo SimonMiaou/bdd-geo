@@ -8,4 +8,8 @@ function where_ou_and($where) {
   }
   return $where;
 }
+
+function date_pour_sql($date) {
+  return date('Y/m/d', strtotime($date));
+}
 ?>

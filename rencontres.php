@@ -1,6 +1,8 @@
 <?php include 'header.php' ?>
 <h1>Rencontres</h1>
 
+<p><a href='encoder_rencontre.php'>Ajouter une rencontre</a></p>
+
 <form method='get' action='rencontres.php'>
   <input type='text' name='id_rencontre' placeholder='ID rencontre' />
   <input type='text' name='id_competition' placeholder='ID compétition' />
