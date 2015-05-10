@@ -3,13 +3,33 @@
 
 <?php
 if (isset($_POST['n_registre_joueur']) && isset($_POST['id_rencontre']) && isset($_POST['n_minutes_jouees']) && isset($_POST['n_goals_marques'])) {
-  $bdd->query('INSERT INTO JoueRencontre (n_registre_joueur, id_rencontre, n_minutes_jouees, n_goals_marques)
-    VALUES (
-      '.$_POST['n_registre_joueur'].',
-      '.$_POST['id_rencontre'].',
-      '.$_POST['n_minutes_jouees'].',
-      '.$_POST['n_goals_marques'].')');
-  echo '<p>Activité encodée, <a href="joue_rencontre.php">retour aux activités</a></p>';
+  $req = $bdd->query('SELECT Rencontre.id_equipe_domicile, Rencontre.id_equipe_exterieur, Competition.annee FROM Rencontre JOIN Competition ON Competition.id_competition = Rencontre.id_competition WHERE id_rencontre = '.$_POST['id_rencontre']);
+  $rencontre = $req->fetch();
+
+  $req = $bdd->query('SELECT COUNT(*) as count FROM JouePour
+    WHERE annee = '.$rencontre['annee'].'
+    AND n_registre_joueur = '.$_POST['n_registre_joueur'].'
+    AND (id_equipe = '.$rencontre['id_equipe_domicile'].' OR id_equipe = '.$rencontre['id_equipe_exterieur'].')');
+  $tuple = $req->fetch();
+
+  $req = $bdd->query('SELECT * FROM JoueRencontre WHERE n_registre_joueur = '.$_POST['n_registre_joueur'].' AND id_rencontre = '.$_POST['id_rencontre']);
+  $joue_rencontre = $req->fetch();
+
+  if ($tuple['count'] == 0) {
+    echo '<p>Le joueur doit avoir appartenu à l\'une des deux équipes durant l\'année de la rencontre.</p>';
+  }
+  else if ($joue_rencontre) {
+    echo '<p>L\'activité de ce joueur a déjà été encodée pour cette rencontre.</p>';
+  }
+  else {
+    $bdd->query('INSERT INTO JoueRencontre (n_registre_joueur, id_rencontre, n_minutes_jouees, n_goals_marques)
+      VALUES (
+        '.$_POST['n_registre_joueur'].',
+        '.$_POST['id_rencontre'].',
+        '.$_POST['n_minutes_jouees'].',
+        '.$_POST['n_goals_marques'].')');
+    echo '<p>Activité encodée, <a href="joue_rencontre.php">retour aux activités</a></p>';
+  }
 }
 ?>
 

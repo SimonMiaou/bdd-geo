@@ -56,7 +56,7 @@ if (isset($_POST['etape']) && isset($_POST['date']) && isset($_POST['id_competit
       <?php
       $req = $bdd->query('SELECT * FROM Competition');
       while ($tuple = $req->fetch()) {
-        echo '<option value="'.$tuple['id_competition'].'">'.$tuple['nom_competition'].'</option>';
+        echo '<option value="'.$tuple['id_competition'].'">'.$tuple['nom_competition'].' '.$tuple['annee'].'</option>';
       }
       ?>
     </select>
