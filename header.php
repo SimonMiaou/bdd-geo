@@ -28,3 +28,8 @@ if (empty($_SESSION['pseudo'])) {
     <li><a href='joue_pour.php'>JouePour</a></li>
   </ul>
 </div>
+<div class='menu'>
+  <ul>
+    <li><a href='meilleurs_buteurs.php'>Meilleurs buteurs</a></li>
+  </ul>
+</div>
