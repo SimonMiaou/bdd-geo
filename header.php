@@ -1,5 +1,11 @@
 <?php include 'base_de_donnees.php' ?>
 <?php include 'fonctions.php' ?>
+<?php
+session_start();
+if (empty($_SESSION['pseudo'])) {
+  header('location: connexion.php');
+}
+?>
 <html>
 <header>
   <title>Projet BDD Geo</title>
